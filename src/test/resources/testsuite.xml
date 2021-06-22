@@ -4,7 +4,7 @@
     <listeners>
         <!--  <listener class-name="tests.base.AnnotationTransformer"></listener> -->
     </listeners>
-    <test name="LoginTest">
+    <test name="BookingTest">
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
             <class name="tests.BookingTest"/>

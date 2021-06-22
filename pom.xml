@@ -18,6 +18,10 @@
         <hamcrest.version>2.1</hamcrest.version>
         <cucumber.version>6.8.1</cucumber.version>
         <allure.cucumber.version>2.12.1</allure.cucumber.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <suiteXmlFile>src/test/resources/testsuite.xml</suiteXmlFile>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <aspectj.version>1.9.6</aspectj.version>
     </properties>
 
     <build>
@@ -28,6 +32,25 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+                        -Xmx256m
+                    </argLine>
                 </configuration>
             </plugin>
         </plugins>

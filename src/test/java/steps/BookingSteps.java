@@ -28,7 +28,7 @@ public class BookingSteps {
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
         Configuration.timeout = 7000;
-        Configuration.headless = true;
+        Configuration.headless = false;
         Configuration.holdBrowserOpen = true;
         Configuration.clickViaJs = false;
         searchPage = new SearchPage();

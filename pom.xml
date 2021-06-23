@@ -23,6 +23,7 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <suiteXmlFile>src/test/resources/testsuite.xml</suiteXmlFile>
         <allure-maven.version>2.10.0</allure-maven.version>
+        <allure-cucumber4-jvm.version>2.14.0</allure-cucumber4-jvm.version>
         <aspectj.version>1.9.6</aspectj.version>
     </properties>
 
@@ -52,7 +53,7 @@
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dcucumber.options="--plugin io.qameta.allure.cucumberjvm.AllureCucumberJvm"
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
                     </argLine>
                 </configuration>
             </plugin>
@@ -65,6 +66,13 @@
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber4-jvm -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber4-jvm</artifactId>
+            <version>${allure-cucumber4-jvm.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
